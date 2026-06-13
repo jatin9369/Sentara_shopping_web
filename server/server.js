@@ -20,40 +20,8 @@ const PORT = process.env.PORT || 3000;
 
 // Security headers with CSP configuration for font/image/payment content
 app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: [
-        "'self'", "'unsafe-inline'", "'unsafe-eval'",
-        "https://checkout.razorpay.com",
-        "https://api.razorpay.com",
-        "https://js.stripe.com",
-        "https://secure.payu.in",
-        "https://jssdk.payu.in"
-      ],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
-      imgSrc: [
-        "'self'", "data:", "blob:",
-        "https://images.unsplash.com",
-        "https://cdn.razorpay.com",
-        "https:",  // allow all HTTPS images for product catalog
-      ],
-      connectSrc: [
-        "'self'",
-        "http://localhost:3000",
-        "http://localhost:5173",
-        "https://api.razorpay.com",
-        "https://lumberjack.razorpay.com",
-        "https://api.stripe.com"
-      ],
-      frameSrc: [
-        "https://api.razorpay.com",
-        "https://checkout.razorpay.com",
-        "https://js.stripe.com"
-      ],
-    }
-  }
+  contentSecurityPolicy: false,
+  crossOriginEmbedderPolicy: false,
 }));
 
 // CORS restrictions
