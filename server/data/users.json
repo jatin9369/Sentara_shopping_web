@@ -1,0 +1,164 @@
+[
+  {
+    "id": "7d15e9be-c950-49b1-9863-8d231e910696",
+    "name": "Test User",
+    "mobile": "9876543210",
+    "email": null,
+    "createdAt": "2026-06-12T02:11:00.035Z",
+    "cart": [],
+    "addresses": []
+  },
+  {
+    "id": "854778c5-a9a4-44e8-a7d2-1ca4047b4c10",
+    "name": "ankit patel",
+    "mobile": "9260945546",
+    "email": null,
+    "createdAt": "2026-06-12T02:13:50.180Z",
+    "cart": [],
+    "addresses": [
+      {
+        "id": "a1c92535-c2cb-410c-b733-3e2f384d644b",
+        "label": "Home",
+        "name": "ankit patel",
+        "mobile": "9260945546",
+        "line1": "Psi,  Shafipur",
+        "line2": "Shafipur",
+        "city": "Greater Noida",
+        "state": "Uttar Pradesh",
+        "pincode": "201310",
+        "isDefault": false,
+        "createdAt": "2026-06-12T02:15:53.961Z"
+      }
+    ]
+  },
+  {
+    "id": "5fadbb13-2743-4b9a-9166-779c021a8ff7",
+    "name": "Jatin Singh",
+    "mobile": "9369511633",
+    "email": null,
+    "createdAt": "2026-06-12T02:48:15.168Z",
+    "cart": [
+      {
+        "productId": "p013",
+        "quantity": 1
+      },
+      {
+        "productId": "p003",
+        "quantity": 1
+      },
+      {
+        "productId": "p002",
+        "quantity": 1
+      }
+    ],
+    "addresses": [
+      {
+        "id": "6c15cc8f-b26f-4abe-9e2a-b47b57c9b050",
+        "label": "Work",
+        "name": "Jatin Singh",
+        "mobile": "9369511633",
+        "line1": "CHATHAMEEL RAITHA ROAD B.K.T LUCKNOW",
+        "line2": "GREEN CITY B.K.T LUCKNOW",
+        "city": "Lucknow",
+        "state": "Uttar Pradesh",
+        "pincode": "226201",
+        "isDefault": false,
+        "createdAt": "2026-06-12T03:04:12.066Z"
+      },
+      {
+        "id": "09c204eb-8c6d-407a-9251-40e38c4414db",
+        "label": "Home",
+        "name": "Jatin Singh",
+        "mobile": "9369511633",
+        "line1": "Main Area",
+        "line2": "",
+        "city": "Lakhisarai",
+        "state": "Bihar",
+        "pincode": "811213",
+        "isDefault": false,
+        "createdAt": "2026-06-12T16:12:53.593Z"
+      },
+      {
+        "id": "549dee7a-a858-4759-8e4a-6ba0cd89811d",
+        "label": "Home",
+        "name": "Jatin Singh",
+        "mobile": "9369511633",
+        "line1": "Main Area",
+        "line2": "",
+        "city": "Lakhisarai",
+        "state": "Bihar",
+        "pincode": "811213",
+        "isDefault": true,
+        "createdAt": "2026-06-12T16:13:12.285Z"
+      }
+    ],
+    "updatedAt": "2026-06-12T03:04:26.812Z",
+    "recentlyViewed": [
+      "p003",
+      "p034"
+    ]
+  },
+  {
+    "id": "bef4cea4-6929-40e0-bc4e-b2f94f1aa17e",
+    "name": "xiao",
+    "mobile": "1234567890",
+    "email": null,
+    "createdAt": "2026-06-12T08:52:45.678Z",
+    "cart": [
+      {
+        "productId": "p012",
+        "quantity": 1
+      }
+    ],
+    "addresses": [
+      {
+        "id": "02668e76-6909-41e4-9fb4-273fd9cee473",
+        "label": "Home",
+        "name": "Nitin Singh",
+        "mobile": "1234567890",
+        "line1": "Navikot Nandana, Sitapur Road, BKT,",
+        "line2": "",
+        "city": "Lucknow",
+        "state": "Uttar Pradesh",
+        "pincode": "226201",
+        "isDefault": false,
+        "createdAt": "2026-06-12T08:55:40.945Z"
+      }
+    ]
+  },
+  {
+    "id": "6d13f5fd-5727-46a4-b4dd-cda5738c909f",
+    "name": "mn",
+    "email": "homemadefood868@gmail.com",
+    "password": "123456",
+    "mobile": "",
+    "createdAt": "2026-06-13T04:49:39.084Z",
+    "cart": [
+      {
+        "productId": "p012",
+        "quantity": 1,
+        "color": "Teal",
+        "size": "55 cm (Small)"
+      }
+    ],
+    "addresses": [
+      {
+        "id": "531e214f-c655-45e7-b193-e7364fb03f8c",
+        "label": "Default Address",
+        "name": "mn",
+        "mobile": "",
+        "line1": "nn nj",
+        "line2": "",
+        "city": "",
+        "state": "",
+        "pincode": "",
+        "isDefault": true,
+        "createdAt": "2026-06-13T04:49:39.084Z"
+      }
+    ],
+    "recentlyViewed": [
+      "p003",
+      "p012"
+    ]
+  }
+]

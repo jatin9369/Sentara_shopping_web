@@ -1,0 +1,138 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  mobile    String   @unique
+  name      String?
+  email     String?  @unique
+  role      Role     @default(CUSTOMER)
+  points    Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  carts     Cart[]
+  orders    Order[]
+  activities UserActivity[]
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+model Product {
+  id            String   @id @default(uuid())
+  name          String
+  category      String
+  price         Float
+  originalPrice Float?
+  discount      Float?
+  rating        Float    @default(4.0)
+  reviews       Int      @default(0)
+  description   String
+  image         String
+  inStock       Boolean  @default(true)
+  badge         String?
+  brand         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  orderItems    OrderItem[]
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  label     String
+  image     String
+  createdAt DateTime @default(now())
+}
+
+model Cart {
+  id        String     @id @default(uuid())
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  quantity  Int        @default(1)
+  createdAt DateTime   @default(now())
+}
+
+model Order {
+  id           String      @id @default(uuid())
+  userId       String
+  user         User        @relation(fields: [userId], references: [id])
+  status       OrderStatus @default(PENDING)
+  totalAmount  Float
+  addressLine1 String
+  addressLine2 String?
+  city         String
+  state        String
+  pincode      String
+  createdAt    DateTime    @default(now())
+  items        OrderItem[]
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Float
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+model ThemeConfig {
+  id              String   @id @default(uuid())
+  name            String   @unique
+  primaryColor    String
+  secondaryColor  String
+  accentColor     String
+  backgroundColor String
+  surfaceColor    String
+  borderColor     String
+  textColor       String
+  fontFamily      String   @default("Inter")
+  borderRadius    String   @default("8px")
+  isActive        Boolean  @default(false)
+}
+
+model HomepageLayout {
+  id        String   @id @default(uuid())
+  sectionId String   @unique // e.g., "hero", "categories", "trending", etc.
+  label     String
+  order     Int
+  isActive  Boolean  @default(true)
+}
+
+model Banner {
+  id          String   @id @default(uuid())
+  title       String
+  subtitle    String?
+  cta         String?
+  image       String
+  background  String?  // hex or tailwind class
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+}
+
+model UserActivity {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String   // "VIEW", "SEARCH", "PURCHASE"
+  targetId  String?  // product ID or category name
+  query     String?  // search queries
+  timestamp DateTime @default(now())
+}

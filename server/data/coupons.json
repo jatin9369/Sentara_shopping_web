@@ -1,0 +1,7 @@
+[
+  { "code": "SAVE10", "type": "percent", "value": 10, "minOrder": 500, "description": "10% off on orders above ₹500" },
+  { "code": "FLAT50", "type": "flat", "value": 50, "minOrder": 300, "description": "₹50 off on orders above ₹300" },
+  { "code": "WELCOME20", "type": "percent", "value": 20, "minOrder": 1000, "description": "20% off for new users (min ₹1000)" },
+  { "code": "SENTARA100", "type": "flat", "value": 100, "minOrder": 800, "description": "₹100 off on orders above ₹800" },
+  { "code": "SUPER30", "type": "percent", "value": 30, "minOrder": 2000, "description": "30% off on orders above ₹2000" }
+]

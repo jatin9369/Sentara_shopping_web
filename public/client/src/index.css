@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-background-light text-text-light transition-colors duration-300 min-h-screen antialiased;
+  }
+  body.dark {
+    @apply bg-background-dark text-text-dark;
+  }
+}
+
+/* ─── Global Scrollbar Styling ─── */
+
+/* Remove ALL scrollbar arrow buttons (the triangle marks at ends) */
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Vertical scrollbar (sidebar / page) */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 99, 255, 0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 99, 255, 0.38);
+}
+
+/* ─── No-scrollbar utility (for horizontal carousels) ─── */
+/* Hides the scrollbar UI but keeps native scroll/swipe working */
+.no-scrollbar {
+  -ms-overflow-style: none;       /* IE / Edge */
+  scrollbar-width: none;          /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;                  /* Chrome / Safari / Opera */
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .shadow-glass {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.glassmorphism {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.dark .glassmorphism {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.glassmorphism-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
+}
+
+.dark .glassmorphism-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Shiny gradient animation */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+  content: '';
+}
+
+.dark .shimmer::after {
+  background-image: linear-gradient(
+    90deg,
+    rgba(30, 41, 59, 0) 0%,
+    rgba(255, 255, 255, 0.03) 20%,
+    rgba(255, 255, 255, 0.1) 60%,
+    rgba(30, 41, 59, 0) 100%
+  );
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 25s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
