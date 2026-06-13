@@ -160,5 +160,30 @@
       "p003",
       "p012"
     ]
+  },
+  {
+    "id": "c1af2bf8-9bca-4f2b-93b5-6124983c3140",
+    "name": "sdsasdasd",
+    "email": "aman1323@gmail.com",
+    "password": "1234567",
+    "mobile": "",
+    "points": 0,
+    "createdAt": "2026-06-13T12:27:27.913Z",
+    "cart": [],
+    "addresses": [
+      {
+        "id": "b68679c9-26ea-47ab-8936-f474ee56307d",
+        "label": "Default Address",
+        "name": "sdsasdasd",
+        "mobile": "",
+        "line1": "dfsafa",
+        "line2": "",
+        "city": "",
+        "state": "",
+        "pincode": "",
+        "isDefault": true,
+        "createdAt": "2026-06-13T12:27:27.913Z"
+      }
+    ]
   }
 ]

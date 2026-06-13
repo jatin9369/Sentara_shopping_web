@@ -20,7 +20,7 @@ export default function DynamicLayout({ layoutData, initialProducts }: { layoutD
   useEffect(() => {
     const fetchPersonalRecs = async () => {
       try {
-        const res = await fetch('http://localhost:3001/api/products/recommendations');
+        const res = await fetch('/api/products/recommendations');
         const data = await res.json();
         if (data.success) {
           setPersonalRecs(data.products);
@@ -36,8 +36,8 @@ export default function DynamicLayout({ layoutData, initialProducts }: { layoutD
     const filterProducts = async () => {
       try {
         const url = selectedMood 
-          ? `http://localhost:3001/api/products?mood=${selectedMood}`
-          : 'http://localhost:3001/api/products';
+          ? `/api/products?mood=${selectedMood}`
+          : '/api/products';
         const res = await fetch(url);
         const data = await res.json();
         if (data.success) {

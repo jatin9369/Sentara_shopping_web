@@ -1,12 +1,15 @@
 import './globals.css';
 import React from 'react';
 import { Inter } from 'next/font/google';
+import Header from '../components/Header';
+
+export const dynamic = 'force-dynamic';
 
 const inter = Inter({ subsets: ['latin'] });
 
 async function getThemeConfig() {
   try {
-    const res = await fetch('http://localhost:3001/api/theme', { cache: 'no-store' });
+    const res = await fetch('/api/theme', { cache: 'no-store' });
     const data = await res.json();
     if (data.success) {
       return data.theme;
@@ -43,6 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className={inter.className}>
         <div className="min-h-screen bg-background text-text transition-colors duration-300">
+          <Header />
           {children}
         </div>
       </body>
