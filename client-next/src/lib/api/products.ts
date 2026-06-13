@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+import productsData from '../../../../data/products.json';
 
 export interface Product {
   id: string;
@@ -15,26 +14,9 @@ export interface Product {
   brand?: string;
 }
 
-const PRODUCT_PATH_CANDIDATES = [
-  path.join(process.cwd(), 'server', 'data', 'products.json'),
-  path.join(process.cwd(), '..', 'server', 'data', 'products.json'),
-  path.join(process.cwd(), '..', '..', 'server', 'data', 'products.json'),
-  path.join(process.cwd(), '..', '..', '..', 'server', 'data', 'products.json')
-];
-
-function resolveProductsFile() {
-  const existing = PRODUCT_PATH_CANDIDATES.find((candidate) => fs.existsSync(candidate));
-  if (!existing) {
-    throw new Error('Could not locate server/data/products.json from current project root.');
-  }
-  return existing;
-}
-
 export function readProducts(): Product[] {
   try {
-    const productsFile = resolveProductsFile();
-    const file = fs.readFileSync(productsFile, 'utf8');
-    return JSON.parse(file) as Product[];
+    return productsData as Product[];
   } catch (error) {
     console.error('Failed to read products data:', error);
     return [];
